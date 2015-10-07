@@ -22,22 +22,26 @@ Macro::Macro(std::vector<Device*> devices) {
 Macro::Macro(std::vector<Device*> devices,std::vector<Subsystem* > s) : Macro(devices) {
 	subsystems = s;
 }
+//Removes in memory loaded recording and resets playback to position zero
 void Macro::Reset() {
 	for (it = Values.begin(); it != Values.end(); it++) {
 		it->second = std::vector<float> ();
 	}
 	length = 0;
-	position = 0;
+	PlayReset();
 }
+//Resets position to zero so play back will start over
 void Macro::PlayReset() {
 	position = 0;
 }
+//Records an instant of all devices
 void Macro::Record() {
 	for (it = Values.begin(); it != Values.end(); it++) {
 		it->second.push_back(it->first->get());
 	}
 	length++;
 }
+//Plays back one instant of devices and increments play back position
 void Macro::PlayBack() {
 	if (position >= length) return;
 	for (it = Values.begin(); it != Values.end(); it++) {
@@ -49,16 +53,19 @@ void Macro::PlayBack() {
 	}
 	position++;
 }
+//Writes the current in memory recording to the file at filename in CSV format, blocks
 void Macro::WriteFile(std::string filename) {
 	 std::ofstream file;
 	 file.open(filename.c_str());
 	 if (file.is_open()) {
+		 //Writes the heading line with the device names, so can be matched on file readback
 		 for (it = Values.begin(); it != Values.end(); it++) {
 			 file << it->first->GetName();
 			if (it != --Values.end()) file << ",";
 		 }
 		 file << "\n";
 
+		 //Writes a new line for the in memory values at each recorded instant in the order the heading establishes
 		 for (unsigned int i = 0; i<length;i++) {
 			 for (it = Values.begin(); it != Values.end(); it++) {
 				 if (i >= it->second.size()) {
@@ -73,6 +80,7 @@ void Macro::WriteFile(std::string filename) {
 		file.close();
 	 }
 }
+//Resets the in memory recording and replaces it with the recording located at the file at filename
 void Macro::ReadFile(std::string filename) {
 	std::ifstream file;
 	file.open(filename.c_str());
@@ -121,22 +129,25 @@ void Macro::ReadFile(std::string filename) {
 			if (i >= list.size()) break; //break from loop if this line has more cols than first line
 			if (list[i] != NULL) Values[list[i]].push_back( (float) std::atof(line.c_str()));
 		}
-	} else {
-
 	}
 }
+//returns true if all in memory recorded instants have been played back using PlayBack()
 bool Macro::IsFinished() {
 	return position >= length;
 }
+//returns a command that will play back all recorded instants (starting at 0) in memory then finish
 Command* Macro::NewPlayCommand() {
 	return new PlayBackCommand(this);
 }
+//Same as NewPlayCommand(), but on command run resets in memory recording this recording at file at FileName
 Command* Macro::NewPlayFileCommand(std::string FileName) {
 	return new PlayBackFileCommand(this,FileName);
 }
+//returns a command that will record a new instant from all sensors into memory until it is manually canceled
 Command* Macro::NewRecordCommand() {
 	return new RecordCommand(this);
 }
+//same as NewRecordCommand(), but writes in memory recording to file at FileName when command is finished
 Command* Macro::NewRecordFileCommand(std::string FileName) {
 	return new RecordFileCommand(this,FileName);
 }
