@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>Wiring</title>
+    <style type="text/css" media="screen">
+      table {
+          text-align: left;
+          width: 400px;
+      
+          border-top: 2px solid black; 
+          border-bottom: 2px solid black;
+          border-collapse:collapse;
+          border-spacing:0px;
+      }
+      th {
+          border-top: 2px solid black; 
+          border-bottom: 2px solid black;
+      }
+      .pound {
+          width: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Wiring</h1>
+                    <h2>DIO</h2>
+	    <table><tr>
+	        <th class="pound">#</th>
+	        <th>Sensor</th></tr>
+	                  	    <tr><td>0</td><td>Chassis LeftRearEncoder</td></tr>
+	            	    <tr><td>1</td><td>Chassis LeftFrontEncoder</td></tr>
+	            	    <tr><td>2</td><td>Chassis RightFrontEncoder</td></tr>
+	            	    <tr><td>3</td><td>Chassis RightRearEncoder</td></tr>
+	                                    	    <tr><td>6</td><td>Chassis RightRearEncoder</td></tr>
+	            	    <tr><td>7</td><td>Chassis RightFrontEncoder</td></tr>
+	            	    <tr><td>8</td><td>Chassis LeftFrontEncoder</td></tr>
+	            	    <tr><td>9</td><td>Chassis LeftRearEncoder</td></tr>
+	                                                                                                                                                                                                     	    </table>
+                        <h2>PWMs</h2>
+	    <table><tr>
+	        <th class="pound">#</th>
+	        <th>Motor</th></tr>
+	                  	    <tr><td>0</td><td>Chassis LeftRearCtrl</td></tr>
+	            	    <tr><td>1</td><td>Chassis LeftFrontCtrl</td></tr>
+	            	    <tr><td>2</td><td>Chassis RightFrontCtrl</td></tr>
+	            	    <tr><td>3</td><td>Chassis RightRearCtrl</td></tr>
+	                                                                                                                                                                                                                                                                             	    </table>
+    
+            
+            
+                
+                                                                                                                                                                                                                                                            
+          </body>
+</html>
