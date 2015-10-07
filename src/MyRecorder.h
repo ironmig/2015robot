@@ -9,6 +9,7 @@
 #define SRC_MYRECORDER_H_
 
 #include "RiptideRecorder/RiptideRecorder.h"
+#include "NewSol.h"
 #include "RobotMap.h"
 #include "Robot.h"
 

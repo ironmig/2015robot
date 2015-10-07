@@ -13,7 +13,7 @@ MyRecorder::MyRecorder() {
 	AddDevice("Right Front",RobotMap::chassisRightFrontCtrl);
 	AddDevice("Right Rear", RobotMap::chassisRightRearCtrl);
 	AddDevice("Winch", RobotMap::lifterWinch);
-	//AddDevice(new NewSol("Arm"));
+	AddDevice(new NewSol("Arm"));
 	AddSubsystem(Robot::chassis);
 	AddSubsystem(Robot::grabber);
 	AddSubsystem(Robot::lifter);
