@@ -10,7 +10,12 @@
 
 
 #include "AutoToteContainerStack.h"
-
+#include "Release.h"
+#include "DriveForTime.h"
+#include "Grab.h"
+#include "LiftForTime.h"
+#include "PauseX.h"
+#include "../Robot.h"
 AutoToteContainerStack::AutoToteContainerStack() {
 	releasePause = 1;
 	grabPause = 1;

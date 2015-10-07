@@ -36,8 +36,11 @@ public:
 	void Raise();
 	void Lower();
 	void Stop();
+	void ResetLevels();
+	int Levels;
 	bool stopAtBottom;
 	void Set(float x);
+	void UpdateLevel();
 	bool MagnetHit();
 	bool BottomHit();
 	void SetLightOn();

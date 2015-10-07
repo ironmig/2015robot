@@ -19,13 +19,12 @@
 //Used commands
 #include "Grab.h"
 #include "Release.h"
-#include "Release.h"
-#include "DriveForTime.h"
-#include "Grab.h"
-#include "LiftForTime.h"
-#include "PauseX.h"
-#include "../Robot.h"
-
+#include "LowerOne.h"
+/**
+ *
+ *
+ * @author ExampleAuthor
+ */
 class AutoToteContainerStack: public CommandGroup {
 public:	
 	float releasePause;
