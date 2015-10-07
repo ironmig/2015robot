@@ -8,14 +8,14 @@
 #include "MyRecorder.h"
 
 MyRecorder::MyRecorder() {
-	this->AddDevice("Left Front",RobotMap::chassisLeftFrontCtrl);
-	this->AddDevice("Left Rear",RobotMap::chassisLeftRearCtrl);
-	this->AddDevice("Right Front",RobotMap::chassisRightFrontCtrl);
-	this->AddDevice("Right Rear", RobotMap::chassisRightRearCtrl);
-	this->AddDevice("Winch", RobotMap::lifterWinch);
-	this->AddDevice(new NewSol("Arm"));
-	this->AddSubsystem(Robot::chassis);
-	this->AddSubsystem(Robot::grabber);
-	this->AddSubsystem(Robot::lifter);
+	AddDevice("Left Front",RobotMap::chassisLeftFrontCtrl);
+	AddDevice("Left Rear",RobotMap::chassisLeftRearCtrl);
+	AddDevice("Right Front",RobotMap::chassisRightFrontCtrl);
+	AddDevice("Right Rear", RobotMap::chassisRightRearCtrl);
+	AddDevice("Winch", RobotMap::lifterWinch);
+	//AddDevice(new NewSol("Arm"));
+	AddSubsystem(Robot::chassis);
+	AddSubsystem(Robot::grabber);
+	AddSubsystem(Robot::lifter);
 }
 
