@@ -67,7 +67,6 @@ void Robot::RobotInit() {
 	autoChooser->AddObject("Play Right Macro (1) ", mac1->NewPlayFileCommand("/home/lvuser/mac1.csv"));
 	autoChooser->AddObject("Play Left Macro (2)", mac2->NewPlayFileCommand("/home/lvuser/mac2.csv"));
 
-
 	SmartDashboard::PutData("Auto Program", autoChooser);
 
 	SmartDashboard::PutBoolean("Bottom hit", false);
