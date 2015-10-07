@@ -8,7 +8,6 @@
 #include "RecordFileCommand.h"
 
 RecordFileCommand::RecordFileCommand(Macro* m, std::string f) : RecordCommand (m) {
-	// TODO Auto-generated constructor stub
 	filename = f;
 }
 void RecordFileCommand::End() {
